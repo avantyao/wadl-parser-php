@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02"
+  xmlns:rss="http://backend.userland.com/rss2">
+  <doc title="test wadl">
+    Location: http://github.com/avantyao/wadl-parser-php/test.wadl
+  </doc>
+  <resources base="http://github.com/avantyao/wadl-parser-php/">
+    <resource path="keyword/rank" type="#wadlResource"/> 
+    <resource path="selfdefine">
+      <method name="GET"/>
+      <resource path="{itemId}">
+        <param name="itemId" style="template"/>
+        <method name="GET"/>
+      </resource>
+      <resource path="subreference" type="#wadlResource"/>
+    </resource>
+    <resource path="keyword/rise" type="#wadlResource"/>
+  </resources>
+
+  <resource_type id="wadlResource">
+    <method href="#list"/>
+    <method href="wadl.wadl#publish"/>
+    <resource path="unpublished">
+      <method href="#list"/> 
+      <method href="wadl.wadl#rebuild"/>
+      <method href="wadl.wadl#create"/>
+      <resource path="{itemId}">
+        <param href="#itemIdParam"/>
+        <method href="wadl.wadl#show"/>
+        <method href="wadl.wadl#create"/>
+        <method href="wadl.wadl#destroy"/>
+      </resource>
+    </resource>
+  </resource_type>
+  <method name="GET" id="list"> 
+    <request>
+      <param href="wadl.wadl#altParam"/>
+      <param href="wadl.wadl#countParam"/>
+      <param href="wadl.wadl#startParam"/>
+      <param href="#clientidParam"/>
+      <param href="#periodParam"/>
+    </request>
+    <response status="200">
+      <representation href="wadl.wadl#rssXml"/>
+      <representation href="wadl.wadl#rssJson"/>
+    </response>
+  </method>
+  <param name="clientid" style="query" default="allclientid" id="clientidParam">
+    <option value="allclientid"/>
+    <option value="apitest"/>
+    <option value="yahoo"/>
+  </param>
+  <param name="period" style="query" default="daily" id="periodParam">
+    <option value="daily"/>
+    <option value="weekly"/>
+  </param>
+  <param name="itemId" style="template" path="/rss:rss/rss:channel/rss:item/rss:title" id="itemIdParam"/>
+</application>
