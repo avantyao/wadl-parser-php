@@ -17,8 +17,11 @@
     },
     "autoload": {
         "psr-4": {
-            "": "src/"
-        }
+            "WADL\\": "src/"
+        },
+        "exclude-from-classmap": [
+            "/test/"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
