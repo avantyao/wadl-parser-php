@@ -1,0 +1,28 @@
+{
+    "name": "coding-berlin/wadl-parser",
+    "type": "library",
+    "description": "A WADL PHP bridge",
+    "keywords": [],
+    "homepage": "",
+    "support": {},
+    "license": "MIT",
+    "authors": [
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
