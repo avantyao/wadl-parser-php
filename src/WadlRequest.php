@@ -1,4 +1,5 @@
 <?php
+namespace WADL;
 
 class WadlRequest extends WadlObject
 {

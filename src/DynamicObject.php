@@ -1,5 +1,7 @@
 <?php
 
+namespace WADL;
+
 class DynamicObject
 {
 	private $properties;

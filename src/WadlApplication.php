@@ -1,5 +1,7 @@
 <?php
 
+namespace WADL;
+
 class WadlApplication extends DynamicObject
 {
 	protected $includeApplications = array();
