@@ -1,7 +1,7 @@
 {
     "name": "coding-berlin/wadl-parser",
     "type": "library",
-    "description": "A WADL PHP bridge",
+    "description": "A  PHP bridge for WADL",
     "keywords": [],
     "homepage": "",
     "support": {},
